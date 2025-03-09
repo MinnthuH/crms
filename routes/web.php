@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HallController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\DashboardController;
@@ -34,5 +35,8 @@ Route::middleware('auth:admin_users')->group(function () {
 
    Route::resource('admin-user', AdminUserController::class);
    Route::get('admin-user-databale', [AdminUserController::class, 'databale'])->name('admin-user-databale');
+
+   Route::resource('hall', HallController::class);
+   Route::get('hall-databale', [HallController::class, 'databale'])->name('hall-databale');
 });
 
