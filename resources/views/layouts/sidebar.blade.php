@@ -49,6 +49,14 @@
                           </p>
                       </a>
                   </li>
+                  <li class="nav-item">
+                      <a href="{{ route('ticket-price.index') }}" class="nav-link">
+                          <i class="nav-icon fas fa-ticket-alt    "></i>
+                          <p>
+                            Ticket Price
+                          </p>
+                      </a>
+                  </li>
 
 
                   <!-- <li class="nav-item">

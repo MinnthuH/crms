@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ShowtimeController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\TicketPriceController;
 use App\Http\Controllers\Auth\PasswordController;
 
 require __DIR__ . '/auth.php';
@@ -41,4 +42,7 @@ Route::middleware('auth:admin_users')->group(function () {
 
     Route::resource('showtime', ShowtimeController::class);
     Route::get('showtime-datatable', [ShowtimeController::class, 'datatable'])->name('showtime.datatable');
+
+    Route::resource('ticket-price', TicketPriceController::class);
+    Route::get('ticket-price-datatable', [TicketPriceController::class, 'datatable'])->name('ticket-price.datatable');
 });

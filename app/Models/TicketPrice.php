@@ -10,6 +10,6 @@ class TicketPrice extends Model
     use HasFactory;
 
     protected $fillable = [
-        'ticket_price',
+        'price',
     ];
 }
