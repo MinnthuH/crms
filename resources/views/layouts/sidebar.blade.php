@@ -42,6 +42,14 @@
                       </a>
                   </li>
                   <li class="nav-item">
+                      <a href="{{ route('movie.index') }}" class="nav-link">
+                          <i class="nav-icon fas fa-film    "></i>
+                          <p>
+                            Movie
+                          </p>
+                      </a>
+                  </li>
+                  <li class="nav-item">
                       <a href="{{ route('showtime.index') }}" class="nav-link">
                           <i class="nav-icon fas fa-clock    "></i>
                           <p>
