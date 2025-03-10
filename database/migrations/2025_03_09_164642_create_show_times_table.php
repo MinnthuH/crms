@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('show_times', function (Blueprint $table) {
             $table->id();
-            $table->string('showtime')->unique();
+            $table->time('showtime')->unique();
             $table->timestamps();
         });
     }

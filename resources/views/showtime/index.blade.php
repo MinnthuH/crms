@@ -1,15 +1,15 @@
 @extends('layouts.app')
 
-@section('title', 'Hall')
+@section('title', 'Showtime')
 
 @section('header')
 <div class="tw-flex tw-justify-between tw-items-center">
     <div class="tw-flex tw-justify-between tw-items-center">
-        <i class="fas fa-hotel tw-p-3 tw-bg-white tw-rounded-lg tw-shadow tw-mr-1"></i>
-        <h5 class="tw-text-lg mb-0">Hall</h5>
+        <i class="fas fa-clock tw-p-3 tw-bg-white tw-rounded-lg tw-shadow tw-mr-1"></i>
+        <h5 class="tw-text-lg mb-0">Showtime</h5>
     </div>
     <div>
-        <x-create-button href="{{ route('hall.create') }}"><i class="fas fa-plus-circle tw-mr-1"></i>create</x-create-button>
+        <x-create-button href="{{ route('showtime.create') }}"><i class="fas fa-plus-circle tw-mr-1"></i>create</x-create-button>
     </div>
 </div>
 @endsection
@@ -20,7 +20,7 @@
         <thead>
             <tr>
                 <th class="text-center no-sort no-search"></th>
-                <th class="text-center">Name</th>
+                <th class="text-center">Showtime</th>
                 <th class="text-center">Created at</th>
                 <th class="text-center">Updated at</th>
                 <th class="text-center no-sort no-search">Action</th>
@@ -38,7 +38,7 @@
             processing: true,
             serverSide: true,
             ajax: {
-                url: "{{ route('hall-databale') }}",
+                url: "{{ route('showtime.datatable') }}",
                 data: function(d) {
 
                 }
@@ -49,7 +49,7 @@
 
                 },
                 {
-                    data: 'name',
+                    data: 'showtime',
                     class: 'text-center'
                 },
                 {

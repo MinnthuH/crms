@@ -35,9 +35,17 @@
 
                   <li class="nav-item">
                       <a href="{{ route('hall.index') }}" class="nav-link">
-                          <i class="nav-icon fas fa-user    "></i>
+                          <i class="nav-icon fas fa-hotel    "></i>
                           <p>
                             Hall
+                          </p>
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="{{ route('showtime.index') }}" class="nav-link">
+                          <i class="nav-icon fas fa-clock    "></i>
+                          <p>
+                            Showtime
                           </p>
                       </a>
                   </li>

@@ -1,6 +1,7 @@
 <x-guest-layout>
     <!-- Session Status -->
     <x-auth-session-status class="tw-mb-4" :status="session('status')" />
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
     <form method="POST" action="{{ route('login') }}">
         @csrf
