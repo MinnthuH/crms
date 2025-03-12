@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EpcController;
 use App\Http\Controllers\HallController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\CinemaController;
@@ -53,4 +54,7 @@ Route::middleware('auth:admin_users')->group(function () {
 
     Route::resource('cinema', CinemaController::class);
     Route::get('cinema-datatable', [CinemaController::class, 'datatable'])->name('cinema.datatable');
+
+    Route::resource('epc', EpcController::class);
+    Route::get('epc-datatable', [EpcController::class, 'datatable'])->name('epc.datatable');
 });

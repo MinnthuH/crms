@@ -73,6 +73,14 @@
                           </p>
                       </a>
                   </li>
+                  <li class="nav-item">
+                      <a href="{{ route('epc.index') }}" class="nav-link">
+                          <i class="nav-icon fas fa-lightbulb    "></i>
+                          <p>
+                            EPC
+                          </p>
+                      </a>
+                  </li>
 
 
                   <!-- <li class="nav-item">
