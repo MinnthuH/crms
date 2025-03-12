@@ -37,8 +37,11 @@
     <!-- Toastr -->
     <link rel="stylesheet" href="{{ asset('plugins/toastr/toastr.min.css') }}">
 
-    <!-- Datables -->
+    <!-- Datatables -->
     <link rel="stylesheet" href="{{ asset('plugins/datatables/datatables.min.css') }}">
+
+    <!-- Select2 -->
+    <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
 
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
@@ -110,6 +113,9 @@
 
     <!-- overlayScrollbars -->
     <script src="{{ asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
+
+    <!-- Select2 -->
+    <script src="{{ asset('plugins/select2/js/select2.min.js') }}"></script>
 
     <!-- Datable -->
     <script src="{{ asset('plugins/datatables/datatables.min.js') }}"></script>

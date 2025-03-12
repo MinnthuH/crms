@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HallController;
 use App\Http\Controllers\MovieController;
+use App\Http\Controllers\CinemaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ShowtimeController;
 use App\Http\Controllers\AdminUserController;
@@ -49,4 +50,7 @@ Route::middleware('auth:admin_users')->group(function () {
 
     Route::resource('movie', MovieController::class);
     Route::get('movie-datatable', [MovieController::class, 'datatable'])->name('movie.datatable');
+
+    Route::resource('cinema', CinemaController::class);
+    Route::get('cinema-datatable', [CinemaController::class, 'datatable'])->name('cinema.datatable');
 });

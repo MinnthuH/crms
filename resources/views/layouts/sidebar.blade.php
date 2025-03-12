@@ -32,6 +32,14 @@
                           </p>
                       </a>
                   </li>
+                  <li class="nav-item">
+                      <a href="{{ route('cinema.index') }}" class="nav-link">
+                          <i class="nav-icon fas fa-hotel    "></i>
+                          <p>
+                            Cinema
+                          </p>
+                      </a>
+                  </li>
 
                   <li class="nav-item">
                       <a href="{{ route('hall.index') }}" class="nav-link">
