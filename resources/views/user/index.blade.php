@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'User')
-
+@section('user-page-active', 'active')
 @section('header')
 <div class="tw-flex tw-justify-between tw-items-center">
     <div class="tw-flex tw-justify-between tw-items-center">
@@ -34,7 +34,7 @@
 @endsection
 
 @push('scripts')
-<script>
+<!-- <script>
     $(document).ready(function() {
         var table = new DataTable('.DataTable-tb', {
             processing: true,
@@ -122,5 +122,92 @@
 
         });
     })
+</script> -->
+
+<script>
+    $(document).ready(function() {
+        var table = new DataTable('.DataTable-tb', {
+            processing: true,
+            serverSide: true,
+            ajax: {
+                url: "{{ route('user.datatable') }}",
+            },
+            columns: [{
+                    data: 'responsive-icon',
+                    class: 'text-center'
+                },
+                {
+                    data: 'name',
+                    class: 'text-center'
+                },
+                {
+                    data: 'email',
+                    class: 'text-center'
+                },
+                {
+                    data: 'cinema',
+                    class: 'text-center'
+                },
+                {
+                    data: 'status',
+                    class: 'text-center'
+                },
+                {
+                    data: 'updated_at',
+                    class: 'text-center'
+                },
+                {
+                    data: 'action',
+                    class: 'text-center'
+                },
+            ],
+            order: [
+                [5, 'desc']
+            ],
+            responsive: {
+                details: {
+                    type: 'column',
+                    target: 0
+                }
+            },
+            columnDefs: [{
+                    targets: 'no-sort',
+                    orderable: false
+                },
+                {
+                    targets: 'no-search',
+                    searchable: false
+                },
+                {
+                    targets: 0,
+                    searchable: false,
+                    orderable: false,
+                    className: 'control'
+                }
+            ]
+        });
+
+        $(document).on('click', '.delete-button', function(e) {
+            e.preventDefault(); // Fix the event reference
+            var url = $(this).data('url');
+
+            deleteDialog.fire().then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: url,
+                        method: 'DELETE',
+                        success: function(response) {
+                            table.ajax.reload();
+                            toastr.success(response.message);
+                        },
+                        error: function(xhr) {
+                            toastr.error('An error occurred while deleting.');
+                        }
+                    });
+                }
+            });
+        });
+    });
 </script>
+
 @endpush

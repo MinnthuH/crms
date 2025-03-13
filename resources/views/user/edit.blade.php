@@ -58,15 +58,8 @@
         </div>
 
 
-
-        <div class="form-group">
-            <x-input-label for="password" value="Password" />
-            <x-text-input id="password" name="password" type="password" class="tw-mt-1 tw-block tw-w-full" />
-
-        </div>
-
         <div class="tw-flex tw-justify-center tw-items-center tw-gap-4 tw-mt-5">
-            <x-cancel-button href="{{ route('admin-user.index') }}">Cancel</x-cancel-button>
+            <x-cancel-button href="{{ route('user.index') }}">Cancel</x-cancel-button>
             <x-confirm-button>Confirm</x-confirm-button>
 
             @if (session('status') === 'profile-updated')

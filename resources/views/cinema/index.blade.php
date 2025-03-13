@@ -2,10 +2,12 @@
 
 @section('title', 'Cinema')
 
+@section('cinema-page-active', 'active')
+
 @section('header')
 <div class="tw-flex tw-justify-between tw-items-center">
     <div class="tw-flex tw-justify-between tw-items-center">
-        <i class="fas fa-hotel tw-p-3 tw-bg-white tw-rounded-lg tw-shadow tw-mr-1"></i>
+        <i class="fas fa-film tw-p-3 tw-bg-white tw-rounded-lg tw-shadow tw-mr-1"></i>
         <h5 class="tw-text-lg mb-0">
             Cinema
         </h5>

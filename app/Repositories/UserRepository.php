@@ -49,26 +49,29 @@ class UserRepository implements BaseRepository
     public function datatable(Request $request)
     {
         $model = User::query();
-            return DataTables::eloquent($model)
-                ->editColumn('cinema', function ($user) {
-                    return $user->cinema->name;
-                })
-                ->editColumn('status', function ($user) {
-                    return $user->status == 1 ? 'Active' : 'Inactive';
-                })
-                ->editColumn('created_at', function ($user) {
-                    return $user->created_at->format('Y-m-d H:i:s');
-                })
-                ->editColumn('updated_at', function ($user) {
-                    return $user->updated_at->format('Y-m-d H:i:s');
-                })
-                ->addColumn('action', function ($user) {
-                    return view('user._action', compact('user'));
-                })
-                ->editColumn('responsive-icon', function ($user) {
-                    return null;
-                })
-                ->toJson();
+        return DataTables::eloquent($model)
+            ->editColumn('cinema', function ($user) {
+                return optional($user->cinema)->name; // Avoid errors if cinema is null
+            })
+            ->editColumn('status', function ($user) {
+                $status = $user->acsrStatus; // Access like a property
+                return '<span style="color: #'.$status['color'].'">'.$status['text'].'</span>';
+            })
+            ->editColumn('created_at', function ($user) {
+                return $user->created_at?->format('Y-m-d H:i:s') ?? '-';
+            })
+            ->editColumn('updated_at', function ($user) {
+                return $user->updated_at?->format('Y-m-d H:i:s') ?? '-';
+            })
+            ->addColumn('action', function ($user) {
+                return view('user._action', compact('user'));
+            })
+            ->editColumn('responsive-icon', function ($user) {
+                return null;
+            })
+            ->rawColumns(['status'])
+            ->toJson();
     }
+    
 }
 

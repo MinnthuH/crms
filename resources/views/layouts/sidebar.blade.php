@@ -1,5 +1,5 @@
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <aside class="main-sidebar sidebar-dark-danger elevation-4">
       <!-- Brand Logo -->
       <a href="index3.html" class="brand-link ">
           <img src="{{ asset('image/logo.png') }}" alt="{{ config('app.name') }}" class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -11,7 +11,7 @@
 
           <!-- Sidebar Menu -->
           <nav class="mt-2">
-              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+              <ul class="nav nav-pills nav-sidebar flex-column nav-legacy" data-widget="treeview" role="menu" data-accordion="false">
                   <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 
@@ -23,26 +23,10 @@
                           </p>
                       </a>
                   </li>
-
+                  <li class="nav-header">Cinema Management</li>
                   <li class="nav-item">
-                      <a href="{{ route('admin-user.index') }}" class="nav-link">
-                          <i class="nav-icon fas fa-user    "></i>
-                          <p>
-                              Admin User
-                          </p>
-                      </a>
-                  </li>
-                  <li class="nav-item">
-                      <a href="{{ route('user.index') }}" class="nav-link">
-                          <i class="nav-icon fas fa-user    "></i>
-                          <p>
-                              User
-                          </p>
-                      </a>
-                  </li>
-                  <li class="nav-item">
-                      <a href="{{ route('cinema.index') }}" class="nav-link">
-                          <i class="nav-icon fas fa-hotel    "></i>
+                      <a href="{{ route('cinema.index') }}" class="nav-link @yield('cinema-page-active')">
+                          <i class="nav-icon fas fa-film    "></i>
                           <p>
                             Cinema
                           </p>
@@ -50,7 +34,7 @@
                   </li>
 
                   <li class="nav-item">
-                      <a href="{{ route('hall.index') }}" class="nav-link">
+                      <a href="{{ route('hall.index') }}" class="nav-link @yield('hall-page-active')">
                           <i class="nav-icon fas fa-hotel    "></i>
                           <p>
                             Hall
@@ -58,15 +42,15 @@
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a href="{{ route('movie.index') }}" class="nav-link">
-                          <i class="nav-icon fas fa-film    "></i>
+                      <a href="{{ route('movie.index') }}" class="nav-link @yield('movie-page-active')">
+                          <i class="nav-icon fas fa-video    "></i>
                           <p>
                             Movie
                           </p>
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a href="{{ route('showtime.index') }}" class="nav-link">
+                      <a href="{{ route('showtime.index') }}" class="nav-link @yield('showtime-page-active')">
                           <i class="nav-icon fas fa-clock    "></i>
                           <p>
                             Showtime
@@ -74,7 +58,7 @@
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a href="{{ route('ticket-price.index') }}" class="nav-link">
+                      <a href="{{ route('ticket-price.index') }}" class="nav-link @yield('ticketprice-page-active')">
                           <i class="nav-icon fas fa-ticket-alt    "></i>
                           <p>
                             Ticket Price
@@ -82,14 +66,30 @@
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a href="{{ route('epc.index') }}" class="nav-link">
+                      <a href="{{ route('epc.index') }}" class="nav-link @yield('epc-page-active')">
                           <i class="nav-icon fas fa-lightbulb    "></i>
                           <p>
                             EPC
                           </p>
                       </a>
                   </li>
-
+                  <li class="nav-header">User Management</li>
+                  <li class="nav-item">
+                      <a href="{{ route('admin-user.index') }}" class="nav-link @yield('admin_user-page-active')">
+                          <i class="nav-icon fas fa-user    "></i>
+                          <p>
+                              Admin User
+                          </p>
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="{{ route('user.index') }}" class="nav-link @yield('user-page-active')">
+                          <i class="nav-icon fas fa-user    "></i>
+                          <p>
+                              User
+                          </p>
+                      </a>
+                  </li>
 
                   <!-- <li class="nav-item">
                       <a href="#" class="nav-link">

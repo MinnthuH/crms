@@ -2,6 +2,8 @@
 
 @section('title', 'Admin User')
 
+@section('admin_user-page-active', 'active')
+
 @section('header')
 <div class="tw-flex tw-justify-between tw-items-center">
     <div class="tw-flex tw-justify-between tw-items-center">
