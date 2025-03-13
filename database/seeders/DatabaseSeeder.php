@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
             ShowTimeSeeder::class,
             HallSeeder::class,
             CinemaSeeder::class,
+            Userseeder::class,
+            EpcSeeder::class,
         ]);
        
     }

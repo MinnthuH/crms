@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'cinema_id',
+        'status',
     ];
 
     /**
@@ -41,4 +43,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function cinema()
+    {
+        return $this->belongsTo(Cinema::class, 'cinema_id', 'id');
+    }
 }

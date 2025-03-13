@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EpcController;
 use App\Http\Controllers\HallController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\CinemaController;
 use App\Http\Controllers\ProfileController;
@@ -39,6 +40,9 @@ Route::middleware('auth:admin_users')->group(function () {
 
     Route::resource('admin-user', AdminUserController::class);
     Route::get('admin-user-databale', [AdminUserController::class, 'databale'])->name('admin-user-databale');
+
+    Route::resource('user', UserController::class);
+    Route::get('user-databale', [UserController::class, 'databale'])->name('user.datatable');
 
     Route::resource('hall', HallController::class);
     Route::get('hall-databale', [HallController::class, 'databale'])->name('hall-databale');
