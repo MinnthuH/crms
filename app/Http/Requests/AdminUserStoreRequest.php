@@ -25,6 +25,7 @@ class AdminUserStoreRequest extends FormRequest
             'name' => 'required|string|max:100',
             'email' => 'required|email|max:100|unique:admin_users',
             'password' => 'required|min:8|max:20',
+            'cinema_id' => 'required',
         ];
     }
 }

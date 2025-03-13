@@ -8,7 +8,7 @@
 <div class="tw-flex tw-justify-between tw-items-center">
     <div class="tw-flex tw-justify-between tw-items-center">
         <i class="fas fa-user tw-p-3 tw-bg-white tw-rounded-lg tw-shadow tw-mr-1"></i>
-        <h5 class="tw-text-lg mb-0">Admin User</h5>
+        <h5 class="tw-text-lg mb-0"> User</h5>
     </div>
     <div>
         <x-create-button href="{{ route('admin-user.create') }}"><i class="fas fa-plus-circle tw-mr-1"></i>create</x-create-button>
@@ -24,7 +24,9 @@
                 <th class="text-center no-sort no-search"></th>
                 <th class="text-center">Name</th>
                 <th class="text-center">Email</th>
-                <th class="text-center">Created at</th>
+                <th class="text-center">Cinema</th>
+                <th class="text-center">Role</th>
+                <th class="text-center">Status</th>
                 <th class="text-center">Updated at</th>
                 <th class="text-center no-sort no-search">Action</th>
             </tr>
@@ -35,6 +37,7 @@
 @endsection
 
 @push('scripts')
+
 <script>
     $(document).ready(function() {
         var table = new DataTable('.DataTable-tb', {
@@ -42,14 +45,10 @@
             serverSide: true,
             ajax: {
                 url: "{{ route('admin-user-databale') }}",
-                data: function(d) {
-
-                }
             },
             columns: [{
                     data: 'responsive-icon',
-                    class: 'text-center',
-
+                    class: 'text-center'
                 },
                 {
                     data: 'name',
@@ -60,7 +59,15 @@
                     class: 'text-center'
                 },
                 {
-                    data: 'created_at',
+                    data: 'cinema',
+                    class: 'text-center'
+                },
+                {
+                    data: 'role',
+                    class: 'text-center'
+                },
+                {
+                    data: 'status',
                     class: 'text-center'
                 },
                 {
@@ -73,7 +80,7 @@
                 },
             ],
             order: [
-                [3, 'desc']
+                [6, 'desc']
             ],
             responsive: {
                 details: {
@@ -95,14 +102,13 @@
                     orderable: false,
                     className: 'control'
                 }
-            ],
-
-
+            ]
         });
 
         $(document).on('click', '.delete-button', function(e) {
-            event.preventDefault();
+            e.preventDefault(); // Fix the event reference
             var url = $(this).data('url');
+
             deleteDialog.fire().then((result) => {
                 if (result.isConfirmed) {
                     $.ajax({
@@ -111,13 +117,15 @@
                         success: function(response) {
                             table.ajax.reload();
                             toastr.success(response.message);
+                        },
+                        error: function(xhr) {
+                            toastr.error('An error occurred while deleting.');
                         }
-                    })
+                    });
                 }
             });
-
-
         });
-    })
+    });
 </script>
+
 @endpush

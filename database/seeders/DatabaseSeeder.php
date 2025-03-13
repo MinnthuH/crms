@@ -14,12 +14,12 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         $this->call([
+            CinemaSeeder::class,
             AdminUserSeeder::class,
             TicketPriceSeeder::class,
             MovieSeeder::class,
             ShowTimeSeeder::class,
             HallSeeder::class,
-            CinemaSeeder::class,
             Userseeder::class,
             EpcSeeder::class,
         ]);

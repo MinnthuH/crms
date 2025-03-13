@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use App\Models\Cinema;
 
 class AdminUser extends Authenticatable
 {
@@ -21,6 +23,9 @@ class AdminUser extends Authenticatable
         'name',
         'email',
         'password',
+        'cinema_id',
+        'role',
+        'status',
     ];
 
     /**
@@ -41,4 +46,35 @@ class AdminUser extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function cinema()
+    {
+        return $this->belongsTo(Cinema::class, 'cinema_id', 'id');
+    }
+
+    protected function acsrStatus(): Attribute
+    {
+        return Attribute::make(
+            get: function ($value, array $attributes) {
+                return match ($attributes['status'] ?? null) {
+                    '1' => ['text' => 'Active', 'color' => '16a34a'],
+                    '0' => ['text' => 'Inactive', 'color' => 'dc2626'],
+                    default => ['text' => 'Unknown', 'color' => '000000'],
+                };
+            }
+        );
+    }
+
+    protected function acsrRole(): Attribute
+    {
+        return Attribute::make(
+            get: function ($value, array $attributes) {
+                return match ($attributes['role'] ?? null) {
+                    '1' => ['text' => 'Admin', 'color' => '16a34a'],
+                    '0' => ['text' => 'User', 'color' => 'dc2626'],
+                    default => ['text' => 'Unknown', 'color' => '000000'],
+                };
+            }
+        );
+    }
 }

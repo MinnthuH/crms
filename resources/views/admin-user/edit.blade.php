@@ -23,35 +23,58 @@
             @csrf
             @method('put')
 
-            <div class="form-group">
-                <x-input-label for="name" value="Name" />
-                <x-text-input id="name" name="name" type="text" class="tw-mt-1 tw-block tw-w-full"
-                    :value="old('name', $admin_user->name)" />
+             <div class="form-group">
+            <x-input-label for="name" value="Name" />
+            <x-text-input id="name" name="name" type="text" class="tw-mt-1 tw-block tw-w-full"
+                :value="old('name', $admin_user->name)" />
 
-            </div>
+        </div>
 
-            <div class="form-group">
-                <x-input-label for="email" :value="__('Email')" />
-                <x-text-input id="email" name="email" type="email" class="tw-mt-1 tw-block tw-w-full"
-                    :value="old('email', $admin_user->email)" />
+        <div class="form-group">
+            <x-input-label for="email" :value="__('Email')" />
+            <x-text-input id="email" name="email" type="email" class="tw-mt-1 tw-block tw-w-full"
+                :value="old('email', $admin_user->email)" />
 
-            </div>
+        </div>
 
-            <div class="form-group">
-                <x-input-label for="password" value="Password" />
-                <x-text-input id="password" name="password" type="password" class="tw-mt-1 tw-block tw-w-full" />
+        <div class="form-group">
+            <x-input-label for="cinema_id" value="Cinema" />
+            <select name="cinema_id" id="cinema_id" class="custom-select">
+                <option value="">-- Select Cinema --</option>
+                @foreach ($cinemas as $cinema)
+                <option value="{{ $cinema->id }}" {{ old('cinema_id', $admin_user->cinema_id) == $cinema->id ? 'selected' : '' }}>
+                    {{ $cinema->name }}
+                </option>
+                @endforeach
+            </select>
+        </div>
 
-            </div>
+        <div class="form-group">
+            <x-input-label for="role" value="Role" />
+            <select name="role" id="role" class="custom-select">
+                <option value="1" {{ old('role', isset($admin_user) ? $admin_user->role : '') == 1 ? 'selected' : '' }}>Admin</option>
+                <option value="0" {{ old('role', isset($admin_user) ? $admin_user->role : '') == 0 ? 'selected' : '' }}>User</option>
+            </select>
+        </div>
 
-            <div class="tw-flex tw-justify-center tw-items-center tw-gap-4 tw-mt-5">
-                <x-cancel-button href="{{ route('admin-user.index') }}">Cancel</x-cancel-button>
-                <x-confirm-button>Confirm</x-confirm-button>
+        <div class="form-group">
+            <x-input-label for="status" value="Status" />
+            <select name="status" id="status" class="custom-select">
+                <option value="1" {{ old('status', isset($admin_user) ? $admin_user->status : '') == 1 ? 'selected' : '' }}>Active</option>
+                <option value="0" {{ old('status', isset($admin_user) ? $admin_user->status : '') == 0 ? 'selected' : '' }}>Inactive</option>
+            </select>
+        </div>
 
-                @if (session('status') === 'profile-updated')
-                    <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 2000)"
-                        class="tw-text-sm tw-text-gray-600">{{ __('Saved.') }}</p>
-                @endif
-            </div>
+
+        <div class="tw-flex tw-justify-center tw-items-center tw-gap-4 tw-mt-5">
+            <x-cancel-button href="{{ route('admin-user.index') }}">Cancel</x-cancel-button>
+            <x-confirm-button>Confirm</x-confirm-button>
+
+            @if (session('status') === 'profile-updated')
+            <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 2000)"
+                class="tw-text-sm tw-text-gray-600">{{ __('Saved.') }}</p>
+            @endif
+        </div>
         </form>
 
 

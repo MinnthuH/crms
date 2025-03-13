@@ -72,6 +72,6 @@ class UserRepository implements BaseRepository
             ->rawColumns(['status'])
             ->toJson();
     }
-    
+     
 }
 
