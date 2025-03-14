@@ -8,7 +8,7 @@
 <div class="tw-flex tw-justify-between tw-items-center">
     <div class="tw-flex tw-justify-between tw-items-center">
         <i class="fas fa-video tw-p-3 tw-bg-white tw-rounded-lg tw-shadow tw-mr-1"></i>
-        <h5 class="tw-text-lg mb-0">Movie</h5>
+        <h5 class="tw-text-lg mb-0 tw-p-3">Movie</h5>
     </div>
     <div>
         <x-create-button href="{{ route('movie.create') }}"><i class="fas fa-plus-circle tw-mr-1"></i>create</x-create-button>

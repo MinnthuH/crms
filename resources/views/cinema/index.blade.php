@@ -8,7 +8,7 @@
 <div class="tw-flex tw-justify-between tw-items-center">
     <div class="tw-flex tw-justify-between tw-items-center">
         <i class="fas fa-film tw-p-3 tw-bg-white tw-rounded-lg tw-shadow tw-mr-1"></i>
-        <h5 class="tw-text-lg mb-0">
+        <h5 class="tw-text-lg mb-0 tw-p-3">
             Cinema
         </h5>
     </div>

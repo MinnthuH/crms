@@ -7,7 +7,7 @@
     <div class="tw-flex tw-justify-between tw-items-center">
         <div class="tw-flex tw-justify-between tw-items-center">
             <i class="fas fa-user tw-p-3 tw-bg-white tw-rounded-lg tw-shadow tw-mr-1"></i>
-            <h5 class="tw-text-lg tw-mb-0">Create User</h5>
+            <h5 class="tw-text-lg tw-mb-0 tw-p-3">Create User</h5>
         </div>
         <div class=""></div>
 
