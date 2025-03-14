@@ -52,23 +52,43 @@ class CinemaController extends Controller
     // End Method
 
    //Cinema Store Method
-   public function store(CinemaStoreRequest $request)
-   {
-    // dd($request->all());
+//    public function store(CinemaStoreRequest $request)
+//    {
+//     // dd($request->all());
 
-       try {
-           $this->cinemaRepository->create([
-               'name' => $request->name,
-               'hall_id' => $request->hall_id,
-               'showtime_id' => $request->showtime_id,
-               'ticketprice_id' => $request->ticketprice_id,
-           ]);
+//        try {
+//            $this->cinemaRepository->create([
+//                'name' => $request->name,
+//                'hall_id' => $request->hall_id,
+//                'showtime_id' => $request->showtime_id,
+//                'ticketprice_id' => $request->ticketprice_id,
+//            ]);
 
-           return Redirect::route('cinema.index')->with('success', 'Cinema Create Successfully');
-       } catch (Exception $e) {
-           return back()->with('error', $e->getMessage());
-       }
-   } // End Method
+//            return Redirect::route('cinema.index')->with('success', 'Cinema Create Successfully');
+//        } catch (Exception $e) {
+//            return back()->with('error', $e->getMessage());
+//        }
+//    }
+    // End Method
+
+    public function store(CinemaStoreRequest $request)
+    {
+        // dd($request->all());
+        try {
+            // Create the Cinema
+            $cinema = $this->cinemaRepository->create([
+                'name' => $request->name,
+                'hall_ids' => json_encode($request->hall_ids),
+                'showtime_ids' => json_encode($request->showtime_ids),
+                'ticketprice_ids' => json_encode($request->ticket_prices),
+            ]);
+
+            return redirect()->route('cinema.index')->with('status', 'Cinema created successfully.');
+        } catch (Exception $e) {
+            return back()->with('error', $e->getMessage());
+        }
+    }
+
 
     // Edit Method
     public function edit($id)
@@ -83,27 +103,50 @@ class CinemaController extends Controller
     
     // End Method
 
+    // public function update(CinemaUpdateRequest $request, $id)
+    // {
+    //     try {
+    //         // Retrieve the existing cinema data
+    //         $cinema = $this->cinemaRepository->find($id);
+    
+    //         // Only update the fields if they are changed, otherwise, keep the old value
+    //         $cinema->name = $request->has('name') ? $request->name : $cinema->name;
+    //         $cinema->hall_id = $request->has('hall_id') ? $request->hall_id : $cinema->hall_id;
+    //         $cinema->showtime_id = $request->has('showtime_id') ? $request->showtime_id : $cinema->showtime_id;
+    //         $cinema->ticketprice_id = $request->has('ticket_price_id') ? $request->ticket_price_id : $cinema->ticketprice_id;
+    
+    //         // Save the updated cinema
+    //         $cinema->save();
+    
+    //         return redirect()->route('cinema.index')->with('success', 'Cinema updated successfully.');
+    //     } catch (Exception $e) {
+    //         return back()->with('error', $e->getMessage());
+    //     }
+    // }
+    
     public function update(CinemaUpdateRequest $request, $id)
-    {
-        try {
-            // Retrieve the existing cinema data
-            $cinema = $this->cinemaRepository->find($id);
-    
-            // Only update the fields if they are changed, otherwise, keep the old value
-            $cinema->name = $request->has('name') ? $request->name : $cinema->name;
-            $cinema->hall_id = $request->has('hall_id') ? $request->hall_id : $cinema->hall_id;
-            $cinema->showtime_id = $request->has('showtime_id') ? $request->showtime_id : $cinema->showtime_id;
-            $cinema->ticketprice_id = $request->has('ticket_price_id') ? $request->ticket_price_id : $cinema->ticketprice_id;
-    
-            // Save the updated cinema
-            $cinema->save();
-    
-            return redirect()->route('cinema.index')->with('success', 'Cinema updated successfully.');
-        } catch (Exception $e) {
-            return back()->with('error', $e->getMessage());
-        }
+{
+    // dd($request->all());
+    try {
+
+        $cinema = $this->cinemaRepository->find($id);
+
+
+        $cinema->name = $request->has('name') ? $request->name : $cinema->name;
+
+        $cinema->hall_ids = $request->has('hall_ids') ? json_encode($request->hall_ids) : $cinema->hall_ids;
+        $cinema->showtime_ids = $request->has('showtime_ids') ? json_encode($request->showtime_ids) : $cinema->showtime_ids;
+        $cinema->ticketprice_ids = $request->has('ticketprice') ? json_encode($request->ticketprice) : $cinema->ticketprice_ids;
+
+
+        $cinema->save();
+
+        return redirect()->route('cinema.index')->with('success', 'Cinema updated successfully.');
+    } catch (Exception $e) {
+        return back()->with('error', $e->getMessage());
     }
-    
+}
+
 
 
     // Delete Method

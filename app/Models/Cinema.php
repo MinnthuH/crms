@@ -13,18 +13,18 @@ class Cinema extends Model
     use HasFactory;
     protected $fillable = [
         'name',
-        'hall_id',
-        'showtime_id',
-        'ticketprice_id',
+        'hall_ids',
+        'showtime_ids',
+        'ticketprice_ids',
     ];
 
     public function hall() {
-        return $this->belongsTo(Hall::class, 'hall_id','id');
+        return $this->belongsTo(Hall::class, 'hall_ids','id');
     }
     public function showtime() {
-        return $this->belongsTo(ShowTime::class, 'showtime_id','id');
+        return $this->belongsTo(ShowTime::class, 'showtime_ids','id');
     }
     public function ticketprice() {
-        return $this->belongsTo(TicketPrice::class, 'ticketprice_id','id');
+        return $this->belongsTo(TicketPrice::class, 'ticketprice_ids','id');
     }
 }

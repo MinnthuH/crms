@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('cinemas', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
-            $table->bigInteger('hall_id')->nullable();
-            $table->bigInteger('showtime_id')->nullable();
-            $table->bigInteger('ticketprice_id')->nullable();
+            $table->json('hall_ids')->nullable();
+            $table->json('showtime_ids')->nullable();
+            $table->json('ticketprice_ids')->nullable();
             $table->timestamps();
         });
     }

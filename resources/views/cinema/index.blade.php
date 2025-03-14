@@ -59,15 +59,15 @@
                     class: 'text-center'
                 },
                 {
-                    data: 'hall_id',
+                    data: 'hall_ids',
                     class: 'text-center'
                 },
                 {
-                    data: 'showtime_id',
+                    data: 'showtime_ids',
                     class: 'text-center'
                 },
                 {
-                    data: 'ticketprice_id',
+                    data: 'ticketprice_ids',
                     class: 'text-center'
                 },
             

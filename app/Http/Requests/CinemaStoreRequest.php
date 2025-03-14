@@ -22,10 +22,10 @@ class CinemaStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:100|unique:cinemas,name',
-            'hall_id'=> 'required',
-            'showtime_id'=> 'required',
-            'ticketprice_id'=> 'required',
+            'name' => 'required|string|max:255',
+            'hall_ids' => 'required|array',  // Array of selected halls
+            'showtime_ids' => 'required|array', // Array of selected showtimes
+            'ticket_prices' => 'required|array', // Array of selected ticket prices
         ];
     }
 }

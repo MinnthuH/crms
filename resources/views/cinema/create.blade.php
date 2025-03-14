@@ -29,9 +29,9 @@
         </div>
 
         <div class="form-group">
-            <x-input-label for="hall_id" value="Hall" />
-            <select name="hall_id" id="hall_id" class="custom-select">
-                <option value="">-- Select Hall --</option>
+            <x-input-label for="hall_ids" value="Halls" />
+            <select name="hall_ids[]" id="hall_ids" class="custom-select" multiple="multiple">
+                <option value="">-- Select Hall(s) --</option>
                 @foreach ($hall as $hall)
                 <option value="{{$hall->id}}">{{$hall->name}}</option>
                 @endforeach
@@ -39,22 +39,20 @@
         </div>
 
         <div class="form-group">
-            <x-input-label for="showtime_id" value="Showtime" />
-            <select name="showtime_id" id="showtime_id" class="custom-select">
-                <option value="">-- Select Showtime --</option>
+            <x-input-label for="showtime_ids" value="Showtimes" />
+            <select name="showtime_ids[]" id="showtime_ids" class="custom-select" multiple="multiple">
+                <option value="">-- Select Showtime(s) --</option>
                 @foreach ($showtime as $showtime)
-               <option value=" {{ $showtime->id}}"> {{ Carbon\Carbon::parse($showtime->showtime)->format('h:i A') }}</option>
+                <option value="{{ $showtime->id}}"> {{ Carbon\Carbon::parse($showtime->showtime)->format('h:i A') }}</option>
                 @endforeach
-
-
             </select>
         </div>
 
 
         <div class="form-group">
-            <x-input-label for="ticketprice_id" value="Ticket Price" />
-            <select name="ticketprice_id" id="ticketprice_id" class="custom-select">
-                <option value="">-- Select Ticket Price --</option>
+            <x-input-label for="ticketprice_id" value="Ticket Prices" />
+            <select name="ticket_prices[]" id="ticketprice_id" class="custom-select" multiple="multiple">
+                <option value="">-- Select Ticket Price(s) --</option>
                 @foreach ($ticketPrice as $ticketPrice)
                 <option value="{{$ticketPrice->id}}">{{$ticketPrice->price}}-MMK</option>
                 @endforeach
@@ -84,19 +82,22 @@
 
 <script>
     $(document).ready(function() {
-        $('#hall_id').select2({
-
+        // Initialize Select2 on the dropdown for hall, showtime, and ticket prices
+        $('#hall_ids').select2({
+            placeholder: "-- Select Hall(s) --",
+            allowClear: true
         });
-    });
-    $(document).ready(function() {
-        $('#showtime_id').select2({
 
+        $('#showtime_ids').select2({
+            placeholder: "-- Select Showtime(s) --",
+            allowClear: true
         });
-    });
-    $(document).ready(function() {
+
         $('#ticketprice_id').select2({
-
+            placeholder: "-- Select Ticket Price(s) --",
+            allowClear: true
         });
     });
 </script>
+
 @endpush

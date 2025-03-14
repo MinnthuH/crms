@@ -23,6 +23,7 @@
                           </p>
                       </a>
                   </li>
+                  @if (Auth::guard('admin_users')->check() && Auth::guard('admin_users')->user()->role == '1')
                   <li class="nav-header">Cinema Management</li>
                   <li class="nav-item">
                       <a href="{{ route('cinema.index') }}" class="nav-link @yield('cinema-page-active')">
@@ -74,6 +75,7 @@
                       </a>
                   </li>
                   <li class="nav-header">User Management</li>
+          
                   <li class="nav-item">
                       <a href="{{ route('admin-user.index') }}" class="nav-link @yield('admin_user-page-active')">
                           <i class="nav-icon fas fa-user    "></i>
@@ -82,14 +84,15 @@
                           </p>
                       </a>
                   </li>
-                  <li class="nav-item">
+                  @endif
+                  <!-- <li class="nav-item">
                       <a href="{{ route('user.index') }}" class="nav-link @yield('user-page-active')">
                           <i class="nav-icon fas fa-user    "></i>
                           <p>
                               User
                           </p>
                       </a>
-                  </li>
+                  </li> -->
 
                   <!-- <li class="nav-item">
                       <a href="#" class="nav-link">
