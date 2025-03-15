@@ -2,20 +2,21 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\AdminUser;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class CinemaReport extends Model
 {
     use HasFactory;
 
     protected $fillable = [
+        'user_id',
         'cinema_id',
         'hall_id',
         'movie_id',
         'show_date',
         'showtime_id',
-        'ticketprice_id',
         '2000',
         '2500',
         '3000',
@@ -43,8 +44,13 @@ class CinemaReport extends Model
         '30000',
         'total_seats',
         'total_revenue',
-        'EPC',
+        'epc_id',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(AdminUser::class,'user_id','id');
+    }
 
     public function cinema()
     {
@@ -69,5 +75,9 @@ class CinemaReport extends Model
     public function ticketprice()
     {
         return $this->belongsTo(TicketPrice::class,'ticketprice_id','id');
+    }
+    public function epc()
+    {
+        return $this->belongsTo(EPC::class,'epc_id','id');
     }
 }

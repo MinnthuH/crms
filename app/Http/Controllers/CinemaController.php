@@ -103,27 +103,6 @@ class CinemaController extends Controller
     
     // End Method
 
-    // public function update(CinemaUpdateRequest $request, $id)
-    // {
-    //     try {
-    //         // Retrieve the existing cinema data
-    //         $cinema = $this->cinemaRepository->find($id);
-    
-    //         // Only update the fields if they are changed, otherwise, keep the old value
-    //         $cinema->name = $request->has('name') ? $request->name : $cinema->name;
-    //         $cinema->hall_id = $request->has('hall_id') ? $request->hall_id : $cinema->hall_id;
-    //         $cinema->showtime_id = $request->has('showtime_id') ? $request->showtime_id : $cinema->showtime_id;
-    //         $cinema->ticketprice_id = $request->has('ticket_price_id') ? $request->ticket_price_id : $cinema->ticketprice_id;
-    
-    //         // Save the updated cinema
-    //         $cinema->save();
-    
-    //         return redirect()->route('cinema.index')->with('success', 'Cinema updated successfully.');
-    //     } catch (Exception $e) {
-    //         return back()->with('error', $e->getMessage());
-    //     }
-    // }
-    
     public function update(CinemaUpdateRequest $request, $id)
 {
     // dd($request->all());

@@ -24,9 +24,10 @@ class CinemaSeeder extends Seeder
         foreach ($cinemaNames as $name) {
             Cinema::create([
                 'name' => $name,
-                'hall_id' => $faker->numberBetween(1, 4), // Random hall_id between 1 and 4
-                'showtime_id' => $faker->numberBetween(1, 10), // Random showtime_id between 1 and 10
-                'ticketprice_id' => $faker->numberBetween(1, 5), // Random ticketprice_id between 1 and 5
+                'hall_id' => $faker->numberBetween(1, 3), // Random hall_id between 1 and 4
+                'showtime_id' => $faker->numberBetween(1, 3), // Random showtime_id between 1 and 10
+                'ticketprice_id' => $faker->numberBetween(1, 4), // Random ticketprice_id between 1 and 5
+                
             ]);
         }
     }

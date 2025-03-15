@@ -84,7 +84,18 @@
                           </p>
                       </a>
                   </li>
+             
                   @endif
+
+                  <li class="nav-header">Report Management</li>
+                  <li class="nav-item">
+                      <a href="{{ route('cinema-report.index') }}" class="nav-link @yield('cinema-report-page-active')">
+                          <i class="nav-icon fas fa-user    "></i>
+                          <p>
+                              Cinema Report
+                          </p>
+                      </a>
+                  </li>
                   <!-- <li class="nav-item">
                       <a href="{{ route('user.index') }}" class="nav-link @yield('user-page-active')">
                           <i class="nav-icon fas fa-user    "></i>

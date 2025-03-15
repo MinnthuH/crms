@@ -11,6 +11,7 @@ use App\Http\Controllers\ShowtimeController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TicketPriceController;
+use App\Http\Controllers\CinemaReportController;
 use App\Http\Controllers\Auth\PasswordController;
 
 require __DIR__ . '/auth.php';
@@ -61,4 +62,15 @@ Route::middleware(['auth:admin_users', 'admin.role'])->group(function () {
 
     Route::resource('epc', EpcController::class);
     Route::get('epc-datatable', [EpcController::class, 'datatable'])->name('epc.datatable');
+
+   
+});
+
+
+Route::middleware('auth:admin_users')->group(function () {
+   
+    Route::resource('cinema-report', CinemaReportController::class);
+    Route::get('cinema-report-databale', [CinemaReportController::class, 'datatable'])->name('cinema-report-databale');
+   
+    
 });
