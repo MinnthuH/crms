@@ -14,8 +14,8 @@
         @if (Auth::user()->role == 0)
         <x-create-button href="{{ route('cinema-report.create') }}"><i class="fas fa-plus-circle tw-mr-1"></i>create</x-create-button>
         @elseif(Auth::user()->role == 1)
-        <x-download-button href="#"><i class="fas fa-download tw-mr-1"></i>Daily Download</x-download-button>
-        <x-download-button href="#"><i class="fas fa-download tw-mr-1"></i>Weekly Download</x-download-button>
+        <x-download-button href="{{ route('cinema-report.download', ['date' => now()->toDateString()]) }}"><i class="fas fa-download tw-mr-1"></i>Daily Download</x-download-button>
+        <x-download-button href="{{ route('export.weekly') }}"><i class="fas fa-download tw-mr-1"></i>Weekly Download</x-download-button>
 
         @endif
     </div>

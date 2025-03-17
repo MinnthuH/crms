@@ -65,6 +65,7 @@ Route::middleware(['auth:admin_users', 'admin.role'])->group(function () {
 
     Route::get('cinema-report/download', [CinemaReportController::class, 'downloadDailyReport'])->name('cinema-report.download');
 
+    Route::get('export-weekly', [CinemaReportController::class, 'exportWeekly'])->name('export.weekly');
 
    
 });

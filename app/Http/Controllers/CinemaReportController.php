@@ -10,11 +10,14 @@ use App\Models\Movie;
 use App\Models\Cinema;
 use App\Models\ShowTime;
 use App\Models\TicketPrice;
-
 use App\Models\CinemaReport;
+
 use Illuminate\Http\Request;
 use App\Services\ResponseServices;
+use App\Exports\CinemaReportExport;
+use App\Exports\WeeklyReportExport;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Redirect;
 use App\Repositories\CinemaReportRepository;
 use App\Http\Requests\CinemaReportStoreRequest;
@@ -291,6 +294,20 @@ class CinemaReportController extends Controller
         } catch (Exception $e) {
             return ResponseServices::fail($e->getMessage());
         }
+    }
+    // End Method
+
+    // Download Method
+    public function downloadDailyReport(Request $request)
+    {
+        $date = $request->query('date', Carbon::today()->toDateString()); // Defaults to today if no date is provided
+        return Excel::download(new CinemaReportExport($date), "cinema_report_{$date}.xlsx");
+    }
+
+    // Export Weekly Method
+    public function exportWeekly()
+    {
+        return Excel::download(new WeeklyReportExport, 'weekly-report.xlsx');
     }
     // End Method
 }
