@@ -21,7 +21,7 @@ class CinemaReportRepository implements BaseRepository
 
     public function find($id)
     {
-        $record = $this->model::find($id);
+        $record = $this->model::with(['cinema', 'showtime', 'hall', 'movie', 'epc', 'user', 'ticketprice'])->find($id);
 
         return $record;
     }
@@ -124,6 +124,9 @@ class CinemaReportRepository implements BaseRepository
             })
             ->editColumn('epc_id', function ($cinemaReport) {
                 return optional($cinemaReport->epc)->status . '%';
+            })
+            ->editColumn('total_revenue', function ($cinemaReport) {
+                return number_format($cinemaReport->total_revenue) . ' MMK';
             })
             ->editColumn('updated_at', function ($cinemaReport) {
                 return $cinemaReport->updated_at->format('Y-m-d H:i:s');

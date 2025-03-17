@@ -63,6 +63,9 @@ Route::middleware(['auth:admin_users', 'admin.role'])->group(function () {
     Route::resource('epc', EpcController::class);
     Route::get('epc-datatable', [EpcController::class, 'datatable'])->name('epc.datatable');
 
+    Route::get('cinema-report/download', [CinemaReportController::class, 'downloadDailyReport'])->name('cinema-report.download');
+
+
    
 });
 

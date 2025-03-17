@@ -62,7 +62,7 @@
             <div class="form-group">
                 <x-input-label :for="$price" :value="$price . ' - MMK'" />
                 <x-text-input :id="$price" :name="'prices[' . $price . ']'" type="number" class="tw-mt-1 tw-block tw-w-full"
-                    :value="old('prices.' . $price)" min="0" />
+                    :value="old('prices.' . $price)" min="0" default="0" />
             </div>
         @endforeach
 
@@ -111,4 +111,6 @@
 
 @push('scripts')
 {!! JsValidator::formRequest('App\Http\Requests\CinemaReportStoreRequest', '#submit-form') !!}
+
+
 @endpush

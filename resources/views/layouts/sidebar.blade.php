@@ -80,7 +80,7 @@
                       <a href="{{ route('admin-user.index') }}" class="nav-link @yield('admin_user-page-active')">
                           <i class="nav-icon fas fa-user    "></i>
                           <p>
-                              Admin User
+                            User
                           </p>
                       </a>
                   </li>

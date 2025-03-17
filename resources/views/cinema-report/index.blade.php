@@ -2,7 +2,7 @@
 
 @section('title', 'Cinema Report')
 
-@section('cinema-report-active', 'active')
+@section('cinema-report-page-active', 'active')
 
 @section('header')
 <div class="tw-flex tw-justify-between tw-items-center">
@@ -11,7 +11,13 @@
         <h5 class="tw-text-lg mb-0 tw-p-3">Cinema Report</h5>
     </div>
     <div>
+        @if (Auth::user()->role == 0)
         <x-create-button href="{{ route('cinema-report.create') }}"><i class="fas fa-plus-circle tw-mr-1"></i>create</x-create-button>
+        @elseif(Auth::user()->role == 1)
+        <x-download-button href="#"><i class="fas fa-download tw-mr-1"></i>Daily Download</x-download-button>
+        <x-download-button href="#"><i class="fas fa-download tw-mr-1"></i>Weekly Download</x-download-button>
+
+        @endif
     </div>
 </div>
 @endsection
@@ -23,13 +29,13 @@
             <tr>
                 <th class="text-center no-sort no-search"></th>
                 <th class="text-center">Cinema</th>
+                <th class="text-center">Show Date</th>
                 <th class="text-center">Showtime</th>
                 <th class="text-center">Hall</th>
                 <th class="text-center">Movie</th>
                 <th class="text-center">Total Seats</th>
                 <th class="text-center">Total Revenue</th>
                 <th class="text-center">EPC</th>
-                <th class="text-center">Show Date</th>
                 <th class="text-center no-sort no-search">Action</th>
             </tr>
         </thead>
@@ -60,6 +66,10 @@
                     class: 'text-center'
                 },
                 {
+                    data: 'show_date',
+                    class: 'text-center'
+                },
+                {
                     data: 'showtime_id',
                     class: 'text-center'
                 },
@@ -77,14 +87,10 @@
                 },
                 {
                     data: 'total_revenue',
-                    class: 'text-center'
+                    class: 'text-right'
                 },
                 {
                     data: 'epc_id',
-                    class: 'text-center'
-                },
-                {
-                    data: 'show_date',
                     class: 'text-center'
                 },
                 {
@@ -93,7 +99,7 @@
                 },
             ],
             order: [
-                [6, 'desc']
+                [2, 'desc']
             ],
             responsive: {
                 details: {
