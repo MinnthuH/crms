@@ -10,6 +10,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ShowtimeController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SnackShopController;
 use App\Http\Controllers\TicketPriceController;
 use App\Http\Controllers\CinemaReportController;
 use App\Http\Controllers\Auth\PasswordController;
@@ -60,8 +61,12 @@ Route::middleware(['auth:admin_users', 'admin.role'])->group(function () {
     Route::resource('cinema', CinemaController::class);
     Route::get('cinema-datatable', [CinemaController::class, 'datatable'])->name('cinema.datatable');
 
+    Route::resource('snack-shop', SnackShopController::class);
+    Route::get('snack-shop-databale', [SnackShopController::class, 'databale'])->name('snack-shop.datatable');
+
     Route::resource('epc', EpcController::class);
     Route::get('epc-datatable', [EpcController::class, 'datatable'])->name('epc.datatable');
+
 
     Route::get('cinema-report/download', [CinemaReportController::class, 'downloadDailyReport'])->name('cinema-report.download');
 

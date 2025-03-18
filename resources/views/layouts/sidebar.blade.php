@@ -33,6 +33,14 @@
                           </p>
                       </a>
                   </li>
+                  <li class="nav-item">
+                      <a href="{{ route('snack-shop.index') }}" class="nav-link @yield('snack-shop-page-active')">
+                          <i class="nav-icon fas fa-cart-plus"></i>
+                          <p>
+                            Snack Shop
+                          </p>
+                      </a>
+                  </li>
 
                   <li class="nav-item">
                       <a href="{{ route('hall.index') }}" class="nav-link @yield('hall-page-active')">
