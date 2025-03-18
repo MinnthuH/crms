@@ -14,7 +14,6 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         $this->call([
-            CinemaSeeder::class,
             AdminUserSeeder::class,
             TicketPriceSeeder::class,
             MovieSeeder::class,
@@ -22,6 +21,7 @@ class DatabaseSeeder extends Seeder
             HallSeeder::class,
             Userseeder::class,
             EpcSeeder::class,
+            CinemaSeeder::class,
         ]);
        
     }

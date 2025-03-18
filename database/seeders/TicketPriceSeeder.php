@@ -13,10 +13,7 @@ class TicketPriceSeeder extends Seeder
      */
     public function run(): void
     {
-        TicketPrice::create([
-            'price' => 1000,
 
-        ]);
         TicketPrice::create([
             'price' => 2000,
 

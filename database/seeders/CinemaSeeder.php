@@ -24,10 +24,9 @@ class CinemaSeeder extends Seeder
         foreach ($cinemaNames as $name) {
             Cinema::create([
                 'name' => $name,
-                'hall_id' => $faker->numberBetween(1, 3), // Random hall_id between 1 and 4
-                'showtime_id' => $faker->numberBetween(1, 3), // Random showtime_id between 1 and 10
-                'ticketprice_id' => $faker->numberBetween(1, 4), // Random ticketprice_id between 1 and 5
-                
+                'hall_ids' => json_encode(range(1, 4)), // Stores [1,2,3,4] as JSON
+                'showtime_ids' => json_encode(range(1, 3)), // Stores [1,2,3] as JSON
+                'ticketprice_ids' => json_encode(range(1, 4)), // Stores [1,2,3,4] as JSON
             ]);
         }
     }
