@@ -33,14 +33,6 @@
                           </p>
                       </a>
                   </li>
-                  <li class="nav-item">
-                      <a href="{{ route('snack-shop.index') }}" class="nav-link @yield('snack-shop-page-active')">
-                          <i class="nav-icon fas fa-cart-plus"></i>
-                          <p>
-                            Snack Shop
-                          </p>
-                      </a>
-                  </li>
 
                   <li class="nav-item">
                       <a href="{{ route('hall.index') }}" class="nav-link @yield('hall-page-active')">
@@ -74,6 +66,24 @@
                           </p>
                       </a>
                   </li>
+                  <li class="nav-header">Snack Shop Management</li>
+                  <li class="nav-item">
+                      <a href="{{ route('snack-shop.index') }}" class="nav-link @yield('snack-shop-page-active')">
+                          <i class="nav-icon fas fa-cart-plus"></i>
+                          <p>
+                            Snack Shop
+                          </p>
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="{{ route('snack-shop-user.index') }}" class="nav-link @yield('snack-shop-user-page-active')">
+                          <i class="nav-icon fas fa-user"></i>
+                          <p>
+                            Snack Shop User
+                          </p>
+                      </a>
+                  </li>
+                  <li class="nav-header">General Management</li>
                   <li class="nav-item">
                       <a href="{{ route('epc.index') }}" class="nav-link @yield('epc-page-active')">
                           <i class="nav-icon fas fa-lightbulb    "></i>
