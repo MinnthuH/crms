@@ -70,8 +70,9 @@ class AdminUser extends Authenticatable
         return Attribute::make(
             get: function ($value, array $attributes) {
                 return match ($attributes['role'] ?? null) {
-                    '1' => ['text' => 'Admin', 'color' => '16a34a'],
-                    '0' => ['text' => 'User', 'color' => 'dc2626'],
+                    '1' => ['text' => 'Admin', 'color' => 'e11d48'],
+                    '2' => ['text' => 'Cinema', 'color' => '0891b2'],
+                    '0' => ['text' => 'Snack Shop', 'color' => '000000'],
                     default => ['text' => 'Unknown', 'color' => '000000'],
                 };
             }

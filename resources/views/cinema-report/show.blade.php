@@ -23,6 +23,7 @@
     <div class="tw-grid tw-grid-cols-2 tw-gap-4 tw-text-gray-800">
         <div><strong>Cinema:</strong> {{ $cinemaReport->cinema->name ?? 'N/A' }}</div>
         <div><strong>Hall:</strong> {{ $cinemaReport->hall->name ?? 'N/A' }}</div>
+        <div><strong>Staff Name:</strong> {{ $cinemaReport->user->name ?? 'N/A' }}</div>
 
         <div><strong>Movie:</strong> {{ $cinemaReport->movie->name ?? 'N/A' }}</div>
         <div><strong>Show Date:</strong> {{ $cinemaReport->show_date }}</div>

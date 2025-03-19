@@ -39,7 +39,7 @@ class SnackShopUserController extends Controller
     public function create()
     {
         $snackShops = SnackShop::latest()->get();
-        $users = AdminUser::latest()->get();
+        $users = AdminUser::where('role', '0')->orderBy('id', 'desc')->get();
         return view('snack-shop-user.create', compact('snackShops', 'users'));
     }
     // End Method

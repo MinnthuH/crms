@@ -15,6 +15,7 @@ use App\Http\Controllers\TicketPriceController;
 use App\Http\Controllers\CinemaReportController;
 use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\SnackShopUserController;
+use App\Http\Controllers\SnackShopReportController;
 
 require __DIR__ . '/auth.php';
 /*
@@ -76,14 +77,19 @@ Route::middleware(['auth:admin_users', 'admin.role'])->group(function () {
     Route::get('cinema-report/download', [CinemaReportController::class, 'downloadDailyReport'])->name('cinema-report.download');
     Route::get('export-weekly', [CinemaReportController::class, 'exportWeekly'])->name('export.weekly');
 
+    Route::get('snack-shop-report/download', [SnackShopReportController::class, 'downloadDailyReport'])->name('snack-shop-report.download');
+    Route::get('export-snack-shop-weekly', [SnackShopReportController::class, 'exportWeekly'])->name('export-snack-shop-weekly');
+
    
 });
-
 
 Route::middleware('auth:admin_users')->group(function () {
    
     Route::resource('cinema-report', CinemaReportController::class);
     Route::get('cinema-report-databale', [CinemaReportController::class, 'datatable'])->name('cinema-report-databale');
+
+    Route::resource('snack-shop-report', SnackShopReportController::class);
+    Route::get('snack-shop-report-databale', [SnackShopReportController::class, 'datatable'])->name('snack-shop-report-databale');
 
     
 

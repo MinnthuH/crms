@@ -1,3 +1,3 @@
 
 
-<img src="{{asset('image/logo.png')}}" class="tw-w-20">
+<img src="{{asset('image/Logo.png')}}" class="tw-w-20">

@@ -8,7 +8,7 @@ use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithMapping;
 use Carbon\Carbon;
 
-class WeeklyReportExport implements FromCollection, WithHeadings, WithMapping
+class WeeklySnackShopReportExport implements FromCollection, WithHeadings, WithMapping
 {
     public function collection()
     {

@@ -52,8 +52,8 @@
         <div class="form-group">
             <x-input-label for="role" value="Role" />
             <select name="role" id="role" class="custom-select">
-                <option value="1" {{ old('role', isset($admin_user) ? $admin_user->role : '') == 1 ? 'selected' : '' }}>Admin</option>
-                <option value="0" {{ old('role', isset($admin_user) ? $admin_user->role : '') == 0 ? 'selected' : '' }}>User</option>
+                <option value="2" {{ old('role', isset($admin_user) ? $admin_user->role : '') == 2 ? 'selected' : '' }}>Cinema</option>
+                <option value="0" {{ old('role', isset($admin_user) ? $admin_user->role : '') == 0 ? 'selected' : '' }}>Snack Shop</option>
             </select>
         </div>
 

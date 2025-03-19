@@ -36,5 +36,13 @@ class AdminUserSeeder extends Seeder
             'role' => '0',
             'status' => '1',
         ]);
+        AdminUser::create([
+            'name' => 'User2',
+            'email' => 'user2@gmail.com',
+            'password' => Hash::make('12345678'),
+            'cinema_id' => 1,
+            'role' => '2',
+            'status' => '1',
+        ]);
     }
 }

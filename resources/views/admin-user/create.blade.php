@@ -44,6 +44,15 @@
         </div>
 
         <div class="form-group">
+            <x-input-label for="role" value="Role" />
+            <select name="role" id="role" class="custom-select">
+                <option value="">-- Select Role --</option>
+                <option value="2">Cinema</option>
+                <option value="0">Snack Shop</option>
+            </select>
+        </div>
+
+        <div class="form-group">
             <x-input-label for="cinema_id" value="Cinema" />
             <select name="cinema_id" id="cinema_id" class="custom-select">
                 <option value="">-- Select Cinema --</option>

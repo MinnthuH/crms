@@ -2,7 +2,7 @@
   <aside class="main-sidebar sidebar-dark-danger elevation-4">
       <!-- Brand Logo -->
       <a href="index3.html" class="brand-link ">
-          <img src="{{ asset('image/logo.png') }}" alt="{{ config('app.name') }}" class="brand-image img-circle elevation-3" style="opacity: .8">
+          <img src="{{ asset('image/Logo.png') }}" alt="{{ config('app.name') }}" class="brand-image img-circle elevation-5" style="opacity: .8">
           <span class="brand-text font-weight-light">{{ config('app.name') }}</span>
       </a>
 
@@ -106,14 +106,26 @@
                   @endif
 
                   <li class="nav-header">Report Management</li>
+                  @if (Auth::guard('admin_users')->check() && Auth::guard('admin_users')->user()->role == '1' || Auth::guard('admin_users')->user()->role == '2')
                   <li class="nav-item">
                       <a href="{{ route('cinema-report.index') }}" class="nav-link @yield('cinema-report-page-active')">
-                          <i class="nav-icon fas fa-user    "></i>
+                          <i class="nav-icon fas fa-chart-pie    "></i>
                           <p>
                               Cinema Report
                           </p>
                       </a>
                   </li>
+                  @endif
+                  @if (Auth::guard('admin_users')->check() && Auth::guard('admin_users')->user()->role == '1' || Auth::guard('admin_users')->user()->role == '0')
+                  <li class="nav-item">
+                      <a href="{{ route('snack-shop-report.index') }}" class="nav-link @yield('snackshop-report-page-active')">
+                          <i class="nav-icon fas fa-chart-pie    "></i>
+                          <p>
+                              Snack Shop Report
+                          </p>
+                      </a>
+                  </li>
+                  @endif
                   <!-- <li class="nav-item">
                       <a href="{{ route('user.index') }}" class="nav-link @yield('user-page-active')">
                           <i class="nav-icon fas fa-user    "></i>
