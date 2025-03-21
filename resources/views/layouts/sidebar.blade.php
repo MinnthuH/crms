@@ -1,9 +1,9 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-danger elevation-4">
       <!-- Brand Logo -->
-      <a href="index3.html" class="brand-link ">
-          <img src="{{ asset('image/Logo.png') }}" alt="{{ config('app.name') }}" class="brand-image img-circle elevation-5" style="opacity: .8">
-          <span class="brand-text font-weight-light">{{ config('app.name') }}</span>
+      <a href="{{ route('dashboard') }}" class="brand-link ">
+          <img src="{{ asset('image/Logo.png')  }}" alt="{{ config('app.name') }}" class="brand-image img-circle elevation-3" style="opacity: .8">
+          <span class="brand-text font-weight-light text-center">C R M S</span>
       </a>
 
       <!-- Sidebar -->

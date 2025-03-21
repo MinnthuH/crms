@@ -85,6 +85,7 @@ class SnackShopController extends Controller
        }
    } 
    // End Method
+   
 
     // Delete Method
     public function destroy($id)
@@ -97,4 +98,5 @@ class SnackShopController extends Controller
         }
     }
     // End Method
+
 }
